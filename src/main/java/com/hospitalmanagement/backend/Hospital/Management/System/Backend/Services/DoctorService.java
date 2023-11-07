@@ -40,7 +40,9 @@ public class DoctorService {
     public ArrayList<Patient> getDoctorsPatient (String docID){
         return doctorRepository.getDoctorsPatient(docID);
     }
-
+    public void removeParticularPatient (String pID, String docID){
+        doctorRepository.removeParticularPatientForDoctor(pID,docID);
+    }
 
     public Doctor getDoctorByDocID (String docID){
         return doctorRepository.getDoctorByID(docID);

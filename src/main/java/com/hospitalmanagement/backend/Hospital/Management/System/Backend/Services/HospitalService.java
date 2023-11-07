@@ -28,4 +28,11 @@ public class HospitalService {
         hospitalRepository.assignPatientToBed(bedNumber,obj);
     }
 
+    public int getBedFee (){
+        return hospitalRepository.getBedFee();
+    }
+
+    public void deallocatePatientFromBed (String pID){
+        hospitalRepository.deallocatePatientFromBed(pID);
+    }
 }

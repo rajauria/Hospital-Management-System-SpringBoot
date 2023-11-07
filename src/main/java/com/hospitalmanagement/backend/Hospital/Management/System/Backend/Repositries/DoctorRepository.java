@@ -27,6 +27,18 @@ public class DoctorRepository {
         doctorDB.put (obj.getDocID(),obj);
     }
 
+    public void removeParticularPatientForDoctor (String pID, String docID){
+        ArrayList<Patient> patients = docVsPatients.get(docID);
+        for (int i = 0; i <patients.size();i++){
+            Patient obj = patients.get(i);
+            if (obj.getpID().equals(pID)){
+                patients.remove(i);
+                break;
+            }
+        }
+        docVsPatients.put(docID,patients);
+    }
+
     public void assignPatientToDoctor (String docID, Patient obj){
         ArrayList <Patient> patients = this.docVsPatients.get (docID);
         patients.add (obj);
