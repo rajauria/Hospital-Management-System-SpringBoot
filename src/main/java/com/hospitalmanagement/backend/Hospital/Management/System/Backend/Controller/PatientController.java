@@ -1,5 +1,6 @@
 package com.hospitalmanagement.backend.Hospital.Management.System.Backend.Controller;
 
+import com.hospitalmanagement.backend.Hospital.Management.System.Backend.Models.Doctor;
 import com.hospitalmanagement.backend.Hospital.Management.System.Backend.Models.Patient;
 import com.hospitalmanagement.backend.Hospital.Management.System.Backend.Services.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,12 @@ public class PatientController {
         patientService.dischargePatient(patientID);
         return "Patient got discharged having patient ID - " + patientID;
     }
+
+    @GetMapping ("/api/patient/getdoctor/{pID}")
+    public Doctor getPatientsDoctor (@PathVariable String pID){
+        return patientService.getPatientsDoctor(pID);
+    }
+
 
 
 
