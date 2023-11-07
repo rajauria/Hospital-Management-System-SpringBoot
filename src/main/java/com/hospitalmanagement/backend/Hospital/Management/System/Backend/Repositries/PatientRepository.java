@@ -39,6 +39,7 @@ public class PatientRepository {
 
     public void dischargePatientByID (String patientID){
         this.patientDB.remove(patientID);
+        this.patientVsDoctor.remove(patientID);
     }
 
     public int totalPatients (){
@@ -48,8 +49,6 @@ public class PatientRepository {
     public int getOverallPatients (){
         return this.overallPatients ;
     }
-
-
 
 
 
