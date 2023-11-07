@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class PatientService {
     @Autowired
+    HospitalService hospitalService;
+    @Autowired
     PatientRepository patientRepository;
 
     @Autowired
@@ -20,6 +22,8 @@ public class PatientService {
     public void addPatientToDB (Patient obj){
         String pID = "Patient" + (patientRepository.getOverallPatients() + 1);
         obj.setpID(pID);
+        int bedNumber = hospitalService.getFirstEmptyBed();
+        hospitalService.assignPatientToBed(bedNumber,obj);
         Doctor doc = doctorService.getMinimumPatientDoctor();
         patientRepository.assignPatientToDoctor(pID,doc);
         doctorRepository.assignPatientToDoctor(doc.getDocID(),obj);
